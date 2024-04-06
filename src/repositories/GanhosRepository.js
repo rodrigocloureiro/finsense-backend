@@ -13,7 +13,10 @@ class GanhosRepository {
     return ganho;
   }
 
-  async create(novoGanho) {}
+  async create(novoGanho) {
+    dados.push(novoGanho);
+    return novoGanho;
+  }
 
   async update(id, atualizado) {}
 

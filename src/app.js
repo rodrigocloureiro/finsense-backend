@@ -5,6 +5,7 @@ import saldo from './routes/saldoRoutes.js';
 
 const app = express();
 
+app.use(express.json());
 app.use('/despesas', despesas);
 app.use('/ganhos', ganhos);
 app.use('/saldo', saldo);

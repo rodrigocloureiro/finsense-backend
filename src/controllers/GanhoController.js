@@ -11,7 +11,15 @@ class GanhoController {
     return res.json(await GanhosRepository.findById(id));
   }
 
-  async store(req, res) {}
+  async store(req, res) {
+    const { id, descricao, valor, categoria } = req.body;
+
+    if (!id || !descricao || !valor || !categoria) {
+      return res.status(400).json({ message: 'As informações não foram preenchidas corretamente' });
+    }
+
+    return res.status(201).json(await GanhosRepository.create({ id, descricao, valor, categoria }));
+  }
 
   async update(req, res) {}
 
