@@ -1,6 +1,8 @@
+import DespesasRepository from '../repositories/DespesasRepository.js';
+
 class DespesaController {
   async index(req, res) {
-    res.status(200).send('Funcionando!');
+    return res.json(await DespesasRepository.findAll());
   }
 
   async show(req, res) {}
