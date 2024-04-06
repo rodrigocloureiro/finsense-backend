@@ -1,5 +1,7 @@
 class DespesaController {
-  async index(req, res) {}
+  async index(req, res) {
+    res.status(200).send('Funcionando!');
+  }
 
   async show(req, res) {}
 
