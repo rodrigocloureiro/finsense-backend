@@ -13,7 +13,10 @@ class DespesasRepository {
     return despesa;
   }
 
-  async create(novaDespesa) {}
+  async create(novaDespesa) {
+    dados.push(novaDespesa);
+    return novaDespesa;
+  }
 
   async update(id, atualizado) {}
 
