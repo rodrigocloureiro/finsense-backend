@@ -7,7 +7,7 @@ routes
   .get('/', DespesaController.index)
   .get('/:id', DespesaController.show)
   .post('/', DespesaController.store)
-  .put('/', DespesaController.update)
-  .delete('/', DespesaController.delete);
+  .put('/:id', DespesaController.update)
+  .delete('/:id', DespesaController.delete);
 
 export default routes;

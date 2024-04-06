@@ -13,9 +13,9 @@ class DespesasRepository {
     return despesa;
   }
 
-  async create() {}
+  async create(novaDespesa) {}
 
-  async update(id, novo) {}
+  async update(id, atualizado) {}
 
   async delete(id) {}
 }
