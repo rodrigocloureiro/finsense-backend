@@ -1,7 +1,15 @@
-class GanhoController {
-  async index(req, res) {}
+import GanhosRepository from '../repositories/GanhosRepository.js';
 
-  async show(req, res) {}
+class GanhoController {
+  async index(req, res) {
+    return res.json(await GanhosRepository.findAll());
+  }
+
+  async show(req, res) {
+    const { id } = req.params;
+
+    return res.json(await GanhosRepository.findById(id));
+  }
 
   async store(req, res) {}
 

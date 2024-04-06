@@ -1,9 +1,17 @@
 import dados from '../mocks/dados.js';
+import categorias from '../enums/categorias.js';
 
 class GanhosRepository {
-  async findAll() {}
+  async findAll() {
+    return dados.filter((dado) => dado.categoria === categorias.GANHO);
+  }
 
-  async findById(id) {}
+  async findById(id) {
+    const [ganho] = dados.filter(
+      (dado) => dado.id === Number(id) && dado.categoria === categorias.GANHO
+    ); 
+    return ganho;
+  }
 
   async create(novoGanho) {}
 
