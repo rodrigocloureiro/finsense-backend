@@ -5,7 +5,11 @@ class DespesaController {
     return res.json(await DespesasRepository.findAll());
   }
 
-  async show(req, res) {}
+  async show(req, res) {
+    const { id } = req.params;
+
+    return res.json(await DespesasRepository.findById(id));
+  }
 
   async store(req, res) {}
 

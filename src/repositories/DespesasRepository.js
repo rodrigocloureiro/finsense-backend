@@ -1,17 +1,20 @@
-import despesas from '../mocks/despesas.js';
+import dados from '../mocks/dados.js';
 
 class DespesasRepository {
-  async findAll(req, res) {
-    return despesas;
+  async findAll() {
+    return dados;
   }
 
-  async findById(req, res) {}
+  async findById(id) {
+    const [despesa] = dados.filter(dado => dado.id === Number(id));
+    return despesa;
+  }
 
-  async create(req, res) {}
+  async create() {}
 
-  async update(req, res) {}
+  async update(id, novo) {}
 
-  async delete(req, res) {}
+  async delete(id) {}
 }
 
 export default new DespesasRepository();
