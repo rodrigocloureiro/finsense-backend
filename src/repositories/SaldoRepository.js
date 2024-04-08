@@ -6,12 +6,14 @@ class SaldoRepository {
     return row.saldo;
   }
 
-  async update(id, valor) {
+  async update(id, valor, categoria) {
+    const val = categoria === 'Ganhos' ? valor : -valor;
+
     const [row] = await query(`
     UPDATE contas
-    SET saldo = saldo - $1
+    SET saldo = saldo + $1
     WHERE id = $2 
-    `, [valor, id]);
+    `, [val, id]);
   }
 }
 

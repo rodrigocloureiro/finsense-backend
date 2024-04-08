@@ -31,7 +31,7 @@ class DespesasRepository {
     RETURNING *;
     `, [conta_id, data, descricao, valor, categoria_id]);
     
-    SaldoRepository.update(conta_id, despesa.valor);
+    SaldoRepository.update(conta_id, despesa.valor, 'Despesas');
     return despesa;
   }
 
