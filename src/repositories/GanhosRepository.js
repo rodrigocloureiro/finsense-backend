@@ -1,16 +1,27 @@
 import dados from '../mocks/dados.js';
 import categorias from '../enums/categorias.js';
+import query from '../database/index.js';
 
 class GanhosRepository {
   async findAll() {
-    return dados.filter((dado) => dado.categoria === categorias.GANHO);
+    const rows = await query(`
+    SELECT *
+    FROM transacoes t
+    INNER JOIN categorias c ON t.categoria_id = c.id
+    WHERE c.tipo = 'Receitas';
+    `);
+    return rows;
   }
 
   async findById(id) {
-    const [ganho] = dados.filter(
-      (dado) => dado.id === Number(id) && dado.categoria === categorias.GANHO
-    ); 
-    return ganho;
+    const [row] = await query(`
+    SELECT *
+    FROM transacoes t
+    INNER JOIN categorias c ON t.categoria_id = c.id
+    WHERE c.tipo = 'Receitas'
+      AND t.id = $1;
+    `, [id]);
+    return row;
   }
 
   async create(novoGanho) {
