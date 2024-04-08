@@ -1,6 +1,7 @@
 // import contas from '../mocks/contas.js';
 import categorias from '../enums/categorias.js';
 import dados from '../mocks/dados.js';
+import query from '../database/index.js';
 
 class SaldoRepository {
   filtraPorCategoria(categoria) {
@@ -14,11 +15,8 @@ class SaldoRepository {
   }
 
   async getSaldo(id) {
-    const ganhos = this.calculaTotal(this.filtraPorCategoria(categorias.GANHO));
-    const despesas = this.calculaTotal(this.filtraPorCategoria(categorias.DESPESA));
-
-    // const conta = contas.find((conta) => conta.id === Number(id));
-    return ganhos - despesas;
+    const [row] = await query('SELECT saldo FROM contas WHERE id = $1', [id]);
+    return row.saldo;
   }
 }
 
