@@ -12,13 +12,25 @@ class DespesaController {
   }
 
   async store(req, res) {
-    const { id, descricao, valor, categoria } = req.body;
+    const { conta_id, data, descricao, valor, categoria_id } = req.body;
 
-    if (!id || !descricao || !valor || !categoria) {
-      return res.status(400).json({ message: 'As informações não foram preenchidas corretamente' });
+    if (!conta_id || !data || !descricao || !valor || !categoria_id) {
+      return res
+        .status(400)
+        .json({ message: 'As informações não foram preenchidas corretamente' });
     }
 
-    return res.status(201).json(await DespesasRepository.create({ id, descricao, valor, categoria }));
+    return res
+      .status(201)
+      .json(
+        await DespesasRepository.create({
+          conta_id,
+          data,
+          descricao,
+          valor,
+          categoria_id,
+        })
+      );
   }
 
   async update(req, res) {}
