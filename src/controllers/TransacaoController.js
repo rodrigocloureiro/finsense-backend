@@ -3,8 +3,12 @@ import TransacoesRepository from '../repositories/TransacoesRepository.js';
 class TransacaoController {
   async index(req, res) {
     try {
-      const transacoes = await TransacoesRepository.findAll();
-      res.json(transacoes);
+      const { tipo } = req.query;
+      if (!tipo) {
+         res.json(await TransacoesRepository.findAll());
+      } else {
+        res.json(await TransacoesRepository.findByTipo(tipo));
+      }
     } catch(err) {
       res.status(500).json({ message: err.message });
     }

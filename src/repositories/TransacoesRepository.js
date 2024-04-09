@@ -21,7 +21,15 @@ class TransacoesRepository {
     return row;
   }
 
-  async findByTipo(tipo) {}
+  async findByTipo(tipo) {
+    const rows = await query(`
+    SELECT t.*, c.nome, c.tipo
+    FROM transacoes t
+    INNER JOIN categorias c ON t.categoria_id = c.id
+    WHERE c.tipo = $1;
+    `, [tipo]);
+    return rows;
+  }
 
   async create({ conta_id, data, descricao, valor, categoria_id }, tipo) {
     const [row] = await query(`
