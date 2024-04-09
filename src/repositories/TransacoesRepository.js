@@ -44,7 +44,14 @@ class TransacoesRepository {
 
   async update(id, updated, tipo) {}
 
-  async delete(id) {}
+  async delete(id) {
+    const { conta_id, valor, tipo } = await this.findById(id);
+    await query(`
+    DELETE FROM transacoes t
+    WHERE t.id = $1;
+    `, [id]);
+    SaldoRepository.update(conta_id, valor, tipo, true);
+  }
 }
 
 export default new TransacoesRepository();

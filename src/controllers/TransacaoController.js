@@ -44,7 +44,9 @@ class TransacaoController {
 
   async delete(req, res) {
     try {
-
+      const { id } = req.params;
+      await TransacoesRepository.delete(id);
+      res.sendStatus(204);
     } catch(err) {
       res.status(500).json({ message: err.message });
     }

@@ -6,6 +6,7 @@ const routes = Router();
 routes
   .get('/', TransacaoController.index)
   .get('/:id', TransacaoController.show)
-  .post('/', TransacaoController.store);
+  .post('/', TransacaoController.store)
+  .delete('/:id', TransacaoController.delete);
 
 export default routes;
