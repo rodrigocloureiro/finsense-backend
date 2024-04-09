@@ -7,6 +7,7 @@ routes
   .get('/', TransacaoController.index)
   .get('/:id', TransacaoController.show)
   .post('/', TransacaoController.store)
+  .put('/:id', TransacaoController.update)
   .delete('/:id', TransacaoController.delete);
 
 export default routes;

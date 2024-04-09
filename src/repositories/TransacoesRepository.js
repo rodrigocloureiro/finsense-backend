@@ -42,7 +42,19 @@ class TransacoesRepository {
     return row;
   }
 
-  async update(id, updated, tipo) {}
+  async update(id, { conta_id, data, descricao, valor, categoria_id }, tipo) {
+    const [row] = await query(`
+    UPDATE transacoes t
+    SET conta_id = $1,
+      data = $2,
+      descricao = $3,
+      valor = $4,
+      categoria_id = $5
+      WHERE t.id = $6
+    RETURNING *;
+    `, [conta_id, data, descricao, valor, categoria_id, id]);
+    return row;
+  }
 
   async delete(id) {
     const { conta_id, valor, tipo } = await this.findById(id);
