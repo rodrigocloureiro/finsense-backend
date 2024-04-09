@@ -1,13 +1,13 @@
 import express from 'express';
-import despesas from './routes/despesasRoutes.js';
-import ganhos from './routes/ganhosRoutes.js';
-import saldo from './routes/saldoRoutes.js';
+import routes from './routes/index.js';
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors({
+  origin: 'http://localhost:3001'
+}));
 app.use(express.json());
-app.use('/despesas', despesas);
-app.use('/ganhos', ganhos);
-app.use('/saldo', saldo);
+routes(app);
 
 export default app;
