@@ -7,7 +7,7 @@ class SaldoRepository {
   }
 
   async update(id, valor, categoria) {
-    const val = categoria === 'Ganhos' ? valor : -valor;
+    const val = categoria === 'Receitas' ? valor : -valor;
 
     const [row] = await query(`
     UPDATE contas
