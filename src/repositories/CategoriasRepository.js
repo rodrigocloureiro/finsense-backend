@@ -29,7 +29,12 @@ class CategoriasRepository {
 
   async update(id, categoriaAtualizada) {}
 
-  async delete(id) {}
+  async delete(id) {
+    await query(`
+    DELETE FROM categorias
+    WHERE id = $1
+    `, [id]);
+  }
 }
 
 export default new CategoriasRepository();

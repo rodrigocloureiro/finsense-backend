@@ -32,7 +32,15 @@ class CategoriaController {
 
   async update(req, res) {}
 
-  async delete(req, res) {}
+  async delete(req, res) {
+    try {
+      const { id } = req.params;
+      await CategoriasRepository.delete(id);
+      res.sendStatus(204);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  }
 }
 
 export default new CategoriaController();
