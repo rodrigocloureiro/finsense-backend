@@ -9,13 +9,20 @@ class CategoriasRepository {
     return rows;
   }
 
-  async findById() {}
+  async findById(id) {
+    const [row] = await query(`
+    SELECT *
+    FROM categorias
+    WHERE id = $1
+    `, [id]);
+    return row;
+  }
 
   async create() {}
 
-  async update() {}
+  async update(id, categoriaAtualizada) {}
 
-  async delete() {}
+  async delete(id) {}
 }
 
 export default new CategoriasRepository();

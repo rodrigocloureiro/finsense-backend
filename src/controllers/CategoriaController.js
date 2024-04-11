@@ -10,7 +10,15 @@ class CategoriaController {
     }
   }
 
-  async show(req, res) {}
+  async show(req, res) {
+    try {
+      const { id } = req.params;
+      const categoria = await CategoriasRepository.findById(id);
+      res.json(categoria);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  }
 
   async store(req, res) {}
 
