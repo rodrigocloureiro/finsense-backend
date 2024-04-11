@@ -20,7 +20,15 @@ class CategoriaController {
     }
   }
 
-  async store(req, res) {}
+  async store(req, res) {
+    try {
+      const { nome, tipo } = req.body;
+      const novaCategoria = await CategoriasRepository.create({ nome, tipo });
+      res.json(novaCategoria);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  }
 
   async update(req, res) {}
 

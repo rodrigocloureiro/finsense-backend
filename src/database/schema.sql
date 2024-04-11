@@ -9,7 +9,8 @@ CREATE TABLE contas(
 
 CREATE TABLE categorias(
   id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-  nome VARCHAR(40)
+  nome VARCHAR(40),
+  tipo VARCHAR(20) CHECK (tipo IN ('Despesas', 'Receitas'));
 );
 
 CREATE TABLE transacoes(

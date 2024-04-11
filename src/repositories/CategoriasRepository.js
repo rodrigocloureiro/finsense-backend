@@ -18,7 +18,14 @@ class CategoriasRepository {
     return row;
   }
 
-  async create() {}
+  async create({ nome, tipo }) {
+    const [row] = await query(`
+    INSERT INTO categorias (nome, tipo)
+    VALUES ($1, $2)
+    RETURNING *
+    `, [nome, tipo]);
+    return row;
+  }
 
   async update(id, categoriaAtualizada) {}
 
