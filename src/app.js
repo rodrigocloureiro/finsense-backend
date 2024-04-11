@@ -8,6 +8,7 @@ app.use(cors({
   origin: 'http://localhost:3001'
 }));
 app.use(express.json());
-routes(app);
+// routes(app);
+app.use('/finsense', routes);
 
 export default app;
