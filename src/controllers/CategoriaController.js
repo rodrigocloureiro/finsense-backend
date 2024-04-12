@@ -30,7 +30,16 @@ class CategoriaController {
     }
   }
 
-  async update(req, res) {}
+  async update(req, res) {
+    try {
+      const { id } = req.params;
+      const { nome, tipo } = req.body;
+      const categoriaAtualizada = await CategoriasRepository.update(id, { nome, tipo });
+      res.json(categoriaAtualizada);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  }
 
   async delete(req, res) {
     try {

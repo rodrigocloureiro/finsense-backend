@@ -27,7 +27,16 @@ class CategoriasRepository {
     return row;
   }
 
-  async update(id, categoriaAtualizada) {}
+  async update(id, { nome, tipo }) {
+    const [row] = await query(`
+    UPDATE categorias
+    SET nome = $1,
+      tipo = $2
+    WHERE id = $3
+    RETURNING *
+    `, [nome, tipo, id]);
+    return row;
+  }
 
   async delete(id) {
     await query(`
