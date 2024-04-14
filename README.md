@@ -40,16 +40,16 @@ Inicie o servidor
 ## Ferramentas de Desenvolvimento
 
 <p display="inline-block">
-  <a href="https://code.visualstudio.com/" target="blank">
+  <a href="https://code.visualstudio.com/" target="_blank">
     <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Visual_Studio_Code_0.10.1_icon.png/640px-Visual_Studio_Code_0.10.1_icon.png" alt="vs-logo"/>
   </a>
-  <a href="https://www.docker.com/" target="blank">
+  <a href="https://www.docker.com/" target="_blank">
     <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Docker-svgrepo-com.svg/640px-Docker-svgrepo-com.svg.png" alt="vscode-logo"/>
   </a>
-  <a href="https://www.postman.com/" target="blank">
+  <a href="https://www.postman.com/" target="_blank">
     <img width="48" src="https://www.gartner.com/pi/vendorimages/postman_full-life-cycle-api-management_1633960356020.png" alt="rider-logo"/>
   </a>
-  <a href="https://www.jetbrains.com/datagrip/" target="blank">
+  <a href="https://www.jetbrains.com/datagrip/" target="_blank">
     <img width="48" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/DataGrip.svg/640px-DataGrip.svg.png" alt="rider-logo"/>
   </a>
 </p>
@@ -57,6 +57,7 @@ Inicie o servidor
 
 ## Roadmap
 
+- Adicionar instruções do docker neste README
 - Melhorar o tratamento de erros
 - Adicionar planejamento, como metas mensais, caixinhas tipo porquinho
 - Adicionar tipos de pagamento ao adicionar despesas
